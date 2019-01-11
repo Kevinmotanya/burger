@@ -1,28 +1,29 @@
-// the required dependencies
-var express = require('express');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+//requiring express 
+var express = require("express");
+//var bodyParser = require('body-parser');
 
-var port = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8080;
 
 var app = express();
 
-// Serve up  from the 'public' dir
-app.use(express.static(process.cwd() + '/public'));
+app.use(express.static("public"));
+// parsing the middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// Parses application/x-www-form-urlencoded
+//app.use(bodyParser.urlencoded({ extended: false }));
+//handlebars
+var exphbs = require("express-handlebars");
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-// method override
-app.use(methodOverride('_method'));
+app.use(express.static("public"));
 
-// Set Handlebars and requiring the var for handlebars
-var exphbars = require('express-handlebars');
+var routes = require("./controllers/burgers_controller");
 
-app.engine('handlebars', exphbars({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-
-// Import routes by requiring them
-var routes = require('./controllers/burgers_controller.js');
-//using the routes
-app.use('/', routes);
-app.listen(port);
+app.use(routes);
+//starting up the server
+app.listen(PORT, function() {
+  console.log("Burger Server listening on: http://localhost:" + PORT);
+});
