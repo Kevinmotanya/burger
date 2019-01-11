@@ -1,0 +1,23 @@
+body{
+    text-align: center;
+    height: 80vh;
+    background-image: url(https://www.uig-hotel-skye.com/images/Food/Food-8.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #c4eeee;
+    
+}
+
+.jumbotron{
+    background-color: rgb(226, 174, 226);
+}
+#picOfBurger{
+    text-align: center;
+    height: 150px;
+    width: 150px;
+}
+
+.card{
+    background-color: #ffffffec;
+}
+
