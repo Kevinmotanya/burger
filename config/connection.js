@@ -1,3 +1,4 @@
+//mysql dependency
 var mysql = require("mysql");
 var connection;
 
@@ -12,7 +13,7 @@ if (process.env.JAWSDB_URL) {
     database: "burgers_db"
   });
 };
-
+//connection
 connection.connect(function (err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -20,5 +21,5 @@ connection.connect(function (err) {
   }
   console.log("connected as id " + connection.threadId);
 });
-
+//export connections
 module.exports = connection;
