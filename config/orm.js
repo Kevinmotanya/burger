@@ -1,69 +1,92 @@
-// Import the MySQL connection object
-var connection = require ('./connection.js');
+//Importing connection to the object 
+var connection = require("./connection.js");
+//function generates sequel syntax
+function logOutMarkpoints(num) {
+    var arr = [];
 
-// Helper function for generating MySQL syntax
-function printQuestionMarks(num) {
-	var arr = [];
+    for (var i = 0; i < num; i++) {
+        arr.push("?");
+    }
 
-	for (var i = 0; i < num; i++) {
-		arr.push("?");
-	}
-
-	return arr.toString();
+    return arr.toString();
 }
+//function generates sequel syntax
+function conObjSql(ob) {
+    var arr = [];
 
-// Helper function for generating My SQL syntax
-function objToSql(ob) {
-	var arr = [];
+    for (var key in ob) {
+        var value = ob[key];
 
-	for (var key in ob) {
-		arr.push(key + "=" + ob[key]);
-	}
-
-	return arr.toString();
+        if (Object.hasOwnProperty.call(ob, key)) {
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
+                value = "'" + value + "'";
+            }
+            arr.push(key + "=" + value);
+        }
+    }
+    return arr.toString();
 }
-
-// Create the ORM object to perform SQL queries
+//making an ORM object to do queries for mysql
 var orm = {
-	// Function that returns all table entries
-	selectAll: function(tableInput, cb) {
-		// Construct the query string that returns all rows from the target table
-		var queryString = "SELECT * FROM " + tableInput + ";";
+    selectAll: function (table, cb) {
+        //query string that selects and returns burger from the table 
+        var queryString = "SELECT * FROM " + table + ";";
 
-		// Perform the database query
-		connection.query(queryString, function(err, result) {
-			if (err) {
-				throw err;
-			}
+        connection.query(queryString, function (err, results) {
+            if (err) throw err;
 
-			// Return results in callback
-			cb(result);
-		});
-	},
+            cb(results);
+        });
 
-	// Function that insert a single table entry
-	insertOne: function(table, cols, vals, cb) {
-		// Construct the query string that inserts a single row into the target table
-		var queryString = "INSERT INTO " + table;
+    },
+    //function inserts  a burger entry to the table
+    insertOne: function (table, cols, vals, cb) {
+        var queryString = "INSERT INTO " + table;
 
-		queryString += " (";
-		queryString += cols.toString();
-		queryString += ") ";
-		queryString += "VALUES (";
-		queryString += printQuestionMarks(vals.length);
-		queryString += ") ";
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUE (";
+        queryString += logOutMarkpoints(vals.length);
+        queryString += ") ";
 
-		// console.log(queryString);
+        connection.query(queryString, vals, function (err, result) {
+            if (err) throw err;
 
-		// Perform the database query
-		connection.query(queryString, vals, function(err, result) {
-			if (err) {
-				throw err;
-			}
+            cb(result);
+        });
+    },
+    //function query that updates one table entry
+    updateOne: function (table, objColVals, condition, cb) {
+        var queryString = "UPDATE " + table;
 
-			// Return results in callback
-			cb(result);
-		});
-	},
+        queryString += " SET ";
+        queryString += conObjSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
 
-	
+        console.log(queryString);
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
+    },
+    //function that deletes burger eaten from the table
+    deleteDevoured: function (table, condition, cb) {
+        var queryString = "DELETE FROM " + table;
+
+        queryString += " WHERE ";
+        queryString += condition;
+
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+
+            cb(result)
+        })
+    }
+};
+//exporting the ORM object 
+module.exports = orm;
