@@ -7,7 +7,6 @@ function logOutMarkpoints(num) {
     for (var i = 0; i < num; i++) {
         arr.push("?");
     }
-
     return arr.toString();
 }
 //function generates sequel syntax
@@ -34,10 +33,8 @@ var orm = {
 
         connection.query(queryString, function (err, results) {
             if (err) throw err;
-
             cb(results);
         });
-
     },
     //function inserts  a burger entry to the table
     insertOne: function (table, cols, vals, cb) {
@@ -84,8 +81,8 @@ var orm = {
         connection.query(queryString, function(err, result) {
             if (err) throw err;
 
-            cb(result)
-        })
+            cb(result);
+        });
     }
 };
 //exporting the ORM object 
