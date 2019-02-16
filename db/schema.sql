@@ -1,5 +1,4 @@
 -- create database burgers_db --
-CREATE DATABASE burgers_db;
 
 USE jtry5ysukxte2mdc;
 -- create table burgers --
