@@ -1,4 +1,4 @@
-USE burgers_db;
+USE jtry5ysukxte2mdc;
 
 INSERT INTO burgers (burger_name, devoured)
 VALUES ("Molly Beefy", false),
