@@ -1,0 +1,61 @@
+<div class="container">
+  <!--Jumbotron-->
+  <div class="jumbotron text-center bg-primary text-white">
+    <h1 class="display-4" id="app-title">Awesome Burger <img src="/assets/img/cheeseburger.png"></h1>
+    <p class="lead">Welcome to Awesome Burger. Home of the Awesome Burger.</p>
+  </div>
+
+{{!-- <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Ready Burgers!</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        {{#each burgers}}
+                        {{#unless devoured}}
+                        <li>
+                            <p>{{this.id}}.&nbsp;{{this.burger_name}}</p>
+                        </li>
+                        <button id="{{this.id}}" class="devour btn btn-lrg btn-danger">Devour it!</button>
+                        <br><br>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form id="form">
+                        <button class="btn btn-md btn-danger" id="submit">Submit</button>
+                        <br><br>
+                        <textarea id="burgerInput" rows="2" cols="30" placeholder="  example..."></textarea>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Finished Burgers!</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <li>
+                            <p>{{this.id}}.&nbsp;{{this.burger_name}}</p>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                    <button class="btn btn-lrg btn-danger" id="delete">Delete Finished Burgers</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}

@@ -1,12 +1,10 @@
 # burger
+https://quiet-reef-54262.herokuapp.com/
 # Node Express Handlebars
 
 ### Overview
 
-You'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
-
-### Link
-https://quiet-reef-54262.herokuapp.com/
+This is a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). 
 
 
 ### About
@@ -20,7 +18,7 @@ https://quiet-reef-54262.herokuapp.com/
 * Your app will store every burger in a database, whether devoured or not.
 
 * [Check out this video of the app for a run-through of how it works](https://youtu.be/msvdn95x9OM).
-
+---
 ## Instructions
 
 #### App Setup
