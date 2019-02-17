@@ -1,4 +1,4 @@
-USE jtry5ysukxte2mdc;
+USE ujp9w3g1s6reu3sq;
 
 INSERT INTO burgers (burger_name, devoured)
 VALUES ("Molly Beefy", false),

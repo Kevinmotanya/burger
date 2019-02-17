@@ -1,7 +1,7 @@
 -- create database burgers_db --
 
 
-USE jtry5ysukxte2mdc;
+USE ujp9w3g1s6reu3sq;
 -- create table burgers --
 DROP TABLE IF EXISTS burgers;
 
