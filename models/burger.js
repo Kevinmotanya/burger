@@ -19,7 +19,7 @@ var burger = {
     deleteDevoured: function (condition, cb) {
         orm.deleteDevoured("burgers", condition, function (res) {
             cb(res);
-        })
+        });
     }
 };
 
