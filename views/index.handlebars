@@ -1,7 +1,8 @@
 <div class="container">
     <!--Jumbotron-->
     <div class="jumbotron text-center bg-primary text-white" style=" background-color: rgb(226, 174, 226);">
-        <h1 class="display-4" id="app-title">Atesome Burger <img src="/assets/img/cheeseburger.png"></h1>
+        <h1 class="display-4" id="app-title">Atesome Burger </h1>
+        <hr><img src="./assets/img/cheeseburger.png">
         <p class="lead">Welcome to Atesome Burger. Home of the Cheewable Burgers.</p>
     </div>
 
@@ -15,7 +16,7 @@
                     <div class="card-body">
                         <ul>
                             {{#each burgers}}
-                            {{#unless devoured}}
+                            {{#unless this.devoured}}
                             <li>
                                 <p>{{this.id}}.&nbsp;{{this.burger_name}}</p>
                             </li>
@@ -31,7 +32,7 @@
                 <div class="card">
                     <div class="card-body">
                         <form id="form">
-                            <button class="btn btn-md btn-danger" id="submit">Submit n Eat</button>
+                            <button class="btn btn-md btn-danger" id="submit">Place an Order</button>
                             <br><br>
                             <textarea id="burgerInput" rows="2" cols="30" placeholder="  favorite burger..."></textarea>
                         </form>
@@ -46,7 +47,7 @@
                     <div class="card-body">
                         <ul>
                             {{#each burgers}}
-                            {{#if devoured}}
+                            {{#if this.devoured}}
                             <li>
                                 <p>{{this.id}}.&nbsp;{{this.burger_name}}</p>
                             </li>

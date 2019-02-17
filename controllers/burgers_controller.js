@@ -30,8 +30,8 @@ router.post("/api/burgers", function (req, res) {
 
         res.json({
             id: result.insertId
-        })
-    })
+        });
+    });
 });
 //route to update status/conditon of (a) burger(s)
 router.put("/api/burgers/:id", function (req, res) {
@@ -60,7 +60,7 @@ router.delete("/api/burgers", function (req, res) {
             console.log(result);
             res.status(200).end();
         }
-    )
-})
+    );
+});
 //exporting the routes at the end of the file
 module.exports = router;
