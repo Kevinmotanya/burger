@@ -20,7 +20,7 @@ router.get("/api/burgers", function (req, res) {
     });
 
 });
-//creates a new bueger
+//route that creates a new bueger
 router.post("/api/burgers", function (req, res) {
     burger.createOne([
         "burger_name", "devoured"
@@ -62,5 +62,5 @@ router.delete("/api/burgers", function (req, res) {
         }
     );
 });
-//exporting the routes at the end of the file
+//exporting the routes to router at the end of the file
 module.exports = router;
