@@ -10,6 +10,7 @@ body{
 
 .jumbotron{
     background-color: rgb(226, 174, 226);
+    background-image: url(https://edge.alluremedia.com.au/m/l/2015/07/BlackBurger.jpg);
 }
 #picOfBurger{
     text-align: center;
