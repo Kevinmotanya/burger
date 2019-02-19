@@ -6,7 +6,8 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
-app.use(express.static("public"));
+app.use(express.static(__dirname +"public"));
+app.use("/static", express.static(__dirname +"public"));
 // parsing the middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
